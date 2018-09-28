@@ -45,3 +45,7 @@ parent(tom, jim).
 
 mother(Mother, Child) :- female(Mother), parent(Mother, Child).
 father(Father, Child) :- male(Father), parent(Father, Child).
+% functions for mother and father queries
+
+sibling(Sibling_one, Sibling_two) :- parent(X, Sibling_one), parent(X, Sibling_two).
+% function if one's a sibling of the other
