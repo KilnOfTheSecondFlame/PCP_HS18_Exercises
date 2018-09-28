@@ -42,3 +42,6 @@ parent(tina, jim).
 parent(tom, sue).
 parent(tom, jim).
 % all childern of tom
+
+mother(Mother, Child) :- female(Mother), parent(Mother, Child).
+father(Father, Child) :- male(Father), parent(Father, Child).
