@@ -49,3 +49,7 @@ father(Father, Child) :- male(Father), parent(Father, Child).
 
 sibling(Sibling_one, Sibling_two) :- parent(X, Sibling_one), parent(X, Sibling_two).
 % function if one's a sibling of the other
+
+grandmother(Grandmother, Grandchild) :- female(Grandmother), parent(Parent, Grandchild), parent(Grandmother, Parent).
+
+offspring(Offspring, Ancestor) :- parent(Ancestor, Offspring); parent(Ancestor, X), offspring(Offspring, X).
