@@ -78,3 +78,31 @@ OW = SZ, SZ = red
 false.
 ```
 Es existiert nur eine Lösung für diese Aufgabe.
+
+## Operatoren und arithmetische Ausdrücke
+
+### a)
+```pl
+?- X is 16 / 4 / 2
+|    .
+X = 2.
+```
+Der Term ist eine Infix Operationstyp: yfx
+In Prolog wird es als (16 / 4) / 2 ausgewertet. Da der rechte Operand nicht selber ein //2-Operation sein darf.
+
+### b)
+```pl
+?- Y = 3, X = Y - 1
+|    .
+Y = 3,
+X = 3-1.
+```
+Es ist keine Arithmetische Operation, sondern ein Matching!
+
+### c)
+```pl
+?- Y = 3, X is Y - 1.
+Y = 3,
+X = 2.
+```
+Erst mit dem is/2-Operator werden die Operanden ausgewertet. 
