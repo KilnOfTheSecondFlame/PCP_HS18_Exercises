@@ -127,3 +127,16 @@ Y = 3,
 X = 2.
 ```
 Erst mit dem is/2-Operator werden die Operanden ausgewertet.
+
+## Multiplikation durch rekursive Addition
+
+### a)
+```pl
+?- mult(3, 4, X).                                                                                                  │~                                                                                                                  
+X = 12 ;                                                                                                           │~                                                                                                                  
+X = 12 ;                                                                                                           │~                                                                                                                  
+ERROR: Out of local stackk
+```
+
+### b)
+Dieser Fehler taucht aufgrund einer unendlicher Rekursion auf. Man müsste eine Abbruchbedingung festlegen => Zuerst prüfen ob m grösser als 0 ist
