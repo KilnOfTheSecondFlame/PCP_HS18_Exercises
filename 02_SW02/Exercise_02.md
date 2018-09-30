@@ -56,3 +56,17 @@ L11 = e .
 b | r | o | t  |-|-|
 -| a |-| o  |-|-|
 -| u | n | t | e | n |
+
+
+## Karte färben
+```pl
+?- consult('karteFaerben.pl').
+true.
+
+?- colors(LU, NW, OW, SZ, UR, ZG).
+LU = UR, UR = yellow,
+NW = ZG, ZG = green,
+OW = SZ, SZ = red 
+false.
+```
+Es existiert nur eine Lösung für diese Aufgabe.
