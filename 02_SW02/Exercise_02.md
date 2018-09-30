@@ -29,8 +29,16 @@ X = jack ;
 false.
 ```
 
+## Matching & Suchbaum
+
+### a)
+![SW02 Task 2a Image](img/sw02_task2_01.jpg)
+
+### b)
+![SW02 Task 2a Image](img/sw02_task2_02.jpg)
+
 ## Kreuzworträtsel lösen
-1st|2nd|3rd|4th|5th|6th| 
+1st|2nd|3rd|4th|5th|6th|
 ---|---|---|---|---|---|
 -| L1 |-|-|-|-|
 L2 | L3 | L4 | L5  |-|-|
@@ -50,7 +58,7 @@ L9 = L12, L12 = n,
 L11 = e .
 ```
 
-1st|2nd|3rd|4th|5th|6th| 
+1st|2nd|3rd|4th|5th|6th|
 ---|---|---|---|---|---|
 -| g |-|-|-|-|
 b | r | o | t  |-|-|
@@ -66,7 +74,7 @@ true.
 ?- colors(LU, NW, OW, SZ, UR, ZG).
 LU = UR, UR = yellow,
 NW = ZG, ZG = green,
-OW = SZ, SZ = red 
+OW = SZ, SZ = red
 false.
 ```
 Es existiert nur eine Lösung für diese Aufgabe.
