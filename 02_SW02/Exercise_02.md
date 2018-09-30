@@ -79,6 +79,27 @@ false.
 ```
 Es existiert nur eine Lösung für diese Aufgabe.
 
+## Eigene Familien-Operatoren definieren
+
+### a)
+```pl
+?- op(1150, xfx, mother).
+true.
+
+?- liz mother X.
+X = tom ;
+X = joe.
+```
+
+### b)
+```pl
+?- op(1150, xfx, offspring).
+true.
+
+?- ann offspring mike.
+true .
+```
+
 ## Operatoren und arithmetische Ausdrücke
 
 ### a)
@@ -105,4 +126,4 @@ Es ist keine Arithmetische Operation, sondern ein Matching!
 Y = 3,
 X = 2.
 ```
-Erst mit dem is/2-Operator werden die Operanden ausgewertet. 
+Erst mit dem is/2-Operator werden die Operanden ausgewertet.
