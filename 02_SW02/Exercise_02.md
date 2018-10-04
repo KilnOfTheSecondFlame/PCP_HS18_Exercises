@@ -32,10 +32,10 @@ false.
 ## Matching & Suchbaum
 
 ### a)
-![SW02 Task 2a Image](img/sw02_task2_01.jpg)
+![SW02 Task 2a Image](img/sw02_task2_02.jpg)
 
 ### b)
-![SW02 Task 2a Image](img/sw02_task2_02.jpg)
+![SW02 Task 2a Image](img/sw02_task2_01.jpg)
 
 ## Kreuzworträtsel lösen
 1st|2nd|3rd|4th|5th|6th|
