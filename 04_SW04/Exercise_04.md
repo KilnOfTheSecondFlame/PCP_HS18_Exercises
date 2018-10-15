@@ -1,6 +1,6 @@
 # PCP Übung zu Prolog 5 + 6
 
-## Fibonacci-Zahlen Berechnen mit CLP-R
+## 1 Fibonacci-Zahlen Berechnen mit CLP-R
 
 ### a)
 Falls nach einer nicht-Fibonacci Zahl gesucht wird, dann verfängt sich das Programm in eine Endlos-Rekursion
