@@ -42,7 +42,7 @@ b) Indem man die Gleichung folgendermassen vereinfacht:
 ```
 -30(a+b-c)
 
-## Aufgabe 5
+## Aufgabe 5 *
 
 Darf man bei folgenden Beispielen die (cond ...)-Klauseln vertauschen ohne dass sich die Semantik
 des Programms ändert?
@@ -66,7 +66,7 @@ Nein, das Programm würde dann jeweils "mittel" ausgeben und nie zu "heiss" komm
 ```
 Nein, Multiple von 6 würden dann jeweils angeben, dass Sie durch 3 teilbar sind anstelle von 2.
 
-## Aufgabe 6
+## Aufgabe 6 *
 Analysieren Sie die folgende Funktion zur Maut Berechnung
 ```racket
 (define (toll total-weight)
@@ -96,3 +96,30 @@ Da das Programm ansonsten einen Fehler ausgibt (weil es bspw. einen String auf G
 		)
 	)
 ```
+## Aufgabe 7 *
+
+Gegeben ist
+```racket
+(* (cond ((> a b) a)
+	((< a b) b)
+	(else -1))
+	(+ a 1))
+```
+### a) Handelt es sich um einen korrekten Scheme-Ausdruck? Begründung!
+Nein, da a und b nicht definiert sind, und somit a>b fehlschlägt
+### b) Definieren Sie a und b jeweils so, dass alle Klauseln einmal zutreffen. Welche Ergebnisse erhalten Sie?
+```racket
+(define (task7 a b)
+	(* (cond ((> a b) a)
+		((< a b) b)
+		(else -1))
+		(+ a 1))
+)
+```
+```racket
+> (task7 1 2)
+4
+> (task7 2 1)
+6
+```
+
