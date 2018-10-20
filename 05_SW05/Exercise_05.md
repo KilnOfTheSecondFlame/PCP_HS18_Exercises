@@ -139,3 +139,53 @@ Nein, da a und b nicht definiert sind, und somit a>b fehlschlägt
 (abstand p)
 ```
 
+## Aufgabe 9
+Bei Skelettfunden schließt man aus der Länge der Knochen auf die Körpergrösse; und zwar gilt (als
+statistischer Mittelwert) in cm:
+
+. $Körpergrösse = 69.089 + 2.238 \cdot\ Oberschenkelknochenlänge\ bei\ Männern$
+. $Körpergrösse = 61.412 + 2.317 \cdot\ Oberschenkelknochenlänge\ bei\ Frauen$
+
+Ab dem 30. Lebensjahr nimmt die Körpergröße um 0,06 cm pro Jahr ab.
+### a) Definieren Sie einen Datentyp human mit den Feldern Alter, Geschlecht und Oberschenkelknochenlänge.
+```racket
+(define-struct human (alter geschlecht obklaenge))
+```
+### b) Erstellen Sie eine Funktion b-length, die aus einem Objekt vom Typ human die vermutete Körpergrösse berechnet.
+```racket
+(define-struct human (alter geschlecht obklaenge))
+(define (b-length mensch)
+	(if (human? mensch) 
+		(cond
+			(
+				(eq? "mann" (human-geschlecht mensch))
+				(- 
+					(+ 69.089 (* 2.238 (human-obklaenge mensch)))
+					(cond 
+						((<= 30 (human-alter mensch)) (* 0.06 (- 30 (human-alter mensch))))
+						(else 0)
+					)
+				)
+			)
+			(
+				(eq? "frau" (human-geschlecht mensch))
+				(- 
+					(+ 61.412 (* 2.317 (human-obklaenge mensch)))
+					(cond 
+						((<= 30 (human-alter mensch)) (* 0.06 (- 30 (human-alter mensch))))
+						(else 0)
+					)
+				)
+			)
+			(else "Unbekanntes Geschlecht")
+		)
+		"Please provide a <human> attribute"
+	)
+)
+```
+```racket
+(define bert (make-human 42 "mann" 50))
+(define anna (make-human 42 "frau" 43))
+(b-length bert)
+(b-length anna)
+```
