@@ -34,6 +34,12 @@ c) 34428 : 38 - (1103 - 197)
 1 : (1 + (1 : (1 + 1 : (1 + 1))))
 Dezimal Zahlen werden ziemlich genau dargestellt (Mit dem unendlich Zeichen)
 
+## Aufgabe 3
+```racket
+(define (diagonal a b) (sqrt (+ (sqr a) (sqr b))))
+(diagonal 10 4)
+```
+
 ## Aufgabe 4
 
 b) Indem man die Gleichung folgendermassen vereinfacht:
@@ -121,5 +127,15 @@ Nein, da a und b nicht definiert sind, und somit a>b fehlschlägt
 4
 > (task7 2 1)
 6
+```
+
+## Aufgabe 8
+```racket
+(define-struct punkt (x y))
+(define (abstand p) 
+	(sqrt (+ (sqr (punkt-x p)) (sqr (punkt-y p))))
+)
+(define p (make-punkt 3 4))
+(abstand p)
 ```
 
