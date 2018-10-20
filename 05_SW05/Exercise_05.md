@@ -65,3 +65,34 @@ Nein, das Programm würde dann jeweils "mittel" ausgeben und nie zu "heiss" komm
 	(else "weder durch 2 noch durch 3 teilbar"))
 ```
 Nein, Multiple von 6 würden dann jeweils angeben, dass Sie durch 3 teilbar sind anstelle von 2.
+
+## Aufgabe 6
+Analysieren Sie die folgende Funktion zur Maut Berechnung
+```racket
+(define (toll total-weight)
+	(cond
+		((not (number? total-weight)) "Eingabe muss Zahl sein!")
+		((<= total-weight 0) "Zahl muss größer 0 sein!")
+		((<= total-weight 1000) 20)
+		((<= total-weight 2000) 30)
+		((<= total-weight 5000) 50)
+		((<= total-weight 10000) 100)
+		(else 250)))
+```
+
+### a) Welchen Sinn haben die beiden ersten Klauseln?
+Sie prüfen die Attribute auf richtigen Typ und positiven Wert.
+
+### b) Begründen Sie, weshalb man hier die Reihenfolge der Klauseln nicht ändern darf
+Da das Programm ansonsten einen Fehler ausgibt (weil es bspw. einen String auf Grösse vergleicht)
+
+### c) Nennen Sie ein konkretes Beispiel, bei dem man die Klauseln ändern darf
+```racket
+(define (rand string)
+	(cond
+		((eq? string "a") "b")
+		((eq? string "b") "c")
+		(else "a")
+		)
+	)
+```
