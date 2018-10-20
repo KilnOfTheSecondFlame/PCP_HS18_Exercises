@@ -143,8 +143,8 @@ Nein, da a und b nicht definiert sind, und somit a>b fehlschlägt
 Bei Skelettfunden schließt man aus der Länge der Knochen auf die Körpergrösse; und zwar gilt (als
 statistischer Mittelwert) in cm:
 
-. $Körpergrösse = 69.089 + 2.238 \cdot\ Oberschenkelknochenlänge\ bei\ Männern$
-. $Körpergrösse = 61.412 + 2.317 \cdot\ Oberschenkelknochenlänge\ bei\ Frauen$
+* $Körpergrösse = 69.089 + 2.238 \cdot\ Oberschenkelknochenlänge\ bei\ Männern$
+* $Körpergrösse = 61.412 + 2.317 \cdot\ Oberschenkelknochenlänge\ bei\ Frauen$
 
 Ab dem 30. Lebensjahr nimmt die Körpergröße um 0,06 cm pro Jahr ab.
 ### a) Definieren Sie einen Datentyp human mit den Feldern Alter, Geschlecht und Oberschenkelknochenlänge.
