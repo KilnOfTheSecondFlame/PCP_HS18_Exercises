@@ -113,6 +113,7 @@ Gegeben ist
 ```
 ### a) Handelt es sich um einen korrekten Scheme-Ausdruck? Begründung!
 Nein, da a und b nicht definiert sind, und somit a>b fehlschlägt
+
 ### b) Definieren Sie a und b jeweils so, dass alle Klauseln einmal zutreffen. Welche Ergebnisse erhalten Sie?
 ```racket
 (define (task7 a b)
@@ -162,7 +163,7 @@ Ab dem 30. Lebensjahr nimmt die Körpergröße um 0,06 cm pro Jahr ab.
 				(- 
 					(+ 69.089 (* 2.238 (human-obklaenge mensch)))
 					(cond 
-						((<= 30 (human-alter mensch)) (* 0.06 (- 30 (human-alter mensch))))
+						((<= 30 (human-alter mensch)) (* 0.06 (- (human-alter mensch) 30)))
 						(else 0)
 					)
 				)
@@ -172,7 +173,7 @@ Ab dem 30. Lebensjahr nimmt die Körpergröße um 0,06 cm pro Jahr ab.
 				(- 
 					(+ 61.412 (* 2.317 (human-obklaenge mensch)))
 					(cond 
-						((<= 30 (human-alter mensch)) (* 0.06 (- 30 (human-alter mensch))))
+						((<= 30 (human-alter mensch)) (* 0.06 (- (human-alter mensch) 30)))
 						(else 0)
 					)
 				)
