@@ -16,18 +16,24 @@ Folgende Definitionen liegen vor:
 (rest (first couple))
 > (list "Eva")
 (first (rest couple))
-> 
+> (list "Paul" "Paula")
 (rest (rest couple))
-> 
+> '()
+> (empty? (rest (rest couple)))
+#true
 (first (first (rest couple)))
-> 
+> "Paul"
 (rest (first (rest couple)))
-> 
+> (list "Paula")
 (cons? (rest (rest couple)))
-> 
+> #false
+(list? (rest (rest couple)))
+> #true
 ```
 
-### b) Gibt es eine Kombination von `first` und `rest` an, mit der man den Wert 7 aus der `speclist` herausfiltern kann?
+### b) Gibt es eine Kombination von `first` und `rest` an, mit der man den Wert 7 aus der `spec-list` herausfiltern kann?
+
+Ja und zwar `(first (rest (first (rest (rest spec-list)))))`
 
 ## 2. Aufgabe
 Verallgemeinern Sie die Funktion `redoubler` (Folie Beispiel: Listen-Elemente verdoppeln) so, dass jedes Element einer Zahlen-Liste mit einem beliebigen Faktor multipliziert wird.
