@@ -33,10 +33,24 @@ Folgende Definitionen liegen vor:
 
 ### b) Gibt es eine Kombination von `first` und `rest` an, mit der man den Wert 7 aus der `spec-list` herausfiltern kann?
 
-Ja und zwar `(first (rest (first (rest (rest spec-list)))))`
+Ja und zwar `(first (rest (first (rest (rest (first (rest spec-list)))))))`
 
 ## 2. Aufgabe
 Verallgemeinern Sie die Funktion `redoubler` (Folie Beispiel: Listen-Elemente verdoppeln) so, dass jedes Element einer Zahlen-Liste mit einem beliebigen Faktor multipliziert wird.
+```racket
+(define (remultiply a-list n)
+	(cond (
+		(empty? a-list) empty)
+		(else
+			(cond (
+				(number? n) (cons (* n (first a-list)) (redouble (rest a-list) n))
+				)
+			)
+		)
+	)
+)
+(remultiply (list 3 2 1) 3)
+```
 
 ## 3. Aufgabe *
 
@@ -51,6 +65,7 @@ Untersuchen Sie die folgenden Funktionen. Was bewirken diese Funktionen?
 			(first liste)
 			(f (rest liste)))))
 ```
+Diese Funktion gibt das letzte Element einer Liste aus, bzw. iteriert durch eine Liste, bis es ein erstes Element und '() gibt, und gibt das letzte Element zurück.
 
 ### b)
 ```racket
@@ -63,6 +78,8 @@ Untersuchen Sie die folgenden Funktionen. Was bewirken diese Funktionen?
 				(first liste)
 				(g (rest liste))))))
 ```
+
+Sortiert die Liste der Grösse und gibt dieses Element zurück.
 
 ## 4. Aufgabe *
 Entwickeln Sie eine Funktion, die ein bestimmtes Element aus einer Liste entfernt. Die Definition der Funktion lautet:
@@ -84,6 +101,29 @@ Beispiel zur Anwendung der Funktion:
 '()
 > (delete 'f (list 1 2 3 4))
 (list 1 2 3 4)
+```
+
+```racket
+(define (delete item a-list)
+	(cond 
+		((empty? a-list) empty)
+		(else
+			(cond
+				((eq? item (first a-list))
+					(delete item (rest a-list))
+				)
+				(else 
+					(cons (first a-list) (delete item (rest a-list)))
+				)
+			)
+		)
+	)
+)
+(delete 3 (list 1 2 3 4))
+(delete 'c '(a b c d))
+(delete 'f '(a b c d))
+(delete 'f empty)
+(delete 'f (list 1 2 3 4))
 ```
 
 ## 5. Aufgabe
