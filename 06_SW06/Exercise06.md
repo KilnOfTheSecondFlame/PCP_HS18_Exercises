@@ -143,6 +143,26 @@ true
 false
 ```
 
+```racket
+(define (contains? item a-list)
+	(cond 
+		((empty? a-list) #false)
+		(else
+			(cond
+				((eq? item (first a-list)) #true)
+				(else 
+					(contains? item (rest a-list))
+				)
+			)
+		)
+	)
+)
+(contains? 1 (list 1 2 3))
+(contains? 2 (list 1 3 5))
+(contains? 'c '(a b c d))
+(contains? 'f '(a b c d))
+```
+
 ## 6. Aufgabe
 Die Folie 23 aus PCP-Scheme-4 zeigt die Funktion `list-filter`, um eine Liste zu untersuchen und ggf. eine Resultatliste zu erstellen.
 
