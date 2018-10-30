@@ -105,14 +105,14 @@ Beispiel zur Anwendung der Funktion:
 
 ```racket
 (define (delete item a-list)
-	(cond 
+	(cond
 		((empty? a-list) empty)
 		(else
 			(cond
 				((eq? item (first a-list))
 					(delete item (rest a-list))
 				)
-				(else 
+				(else
 					(cons (first a-list) (delete item (rest a-list)))
 				)
 			)
@@ -145,12 +145,12 @@ false
 
 ```racket
 (define (contains? item a-list)
-	(cond 
+	(cond
 		((empty? a-list) #false)
 		(else
 			(cond
 				((eq? item (first a-list)) #true)
-				(else 
+				(else
 					(contains? item (rest a-list))
 				)
 			)
@@ -185,16 +185,39 @@ Die Folie 23 aus PCP-Scheme-4 zeigt die Funktion `list-filter`, um eine Liste zu
 Die Tests wurden nur mit Listen von Zahlen durchgeführt. Testen Sie die Funktion auch für folgende Situationen
 
 ### a) Suche ein bestimmtes Symbol in einer Liste von Symbolen
+Funktioniert nicht
 
 ### b) Suche ein bestimmtes Zeichen in einer Liste von Zeichen
+Ja, funktioniert.
+```racket
+> (define my-list '(list a b c d e f))
+> (list-filter eqv? my-list 'a)
+(list 'a)
+```
 
 ### c) Suche einen bestimmten String in einer Liste von Strings
-
+Ja, funktioniert.
+```racket
+> (define my-list '(list abc bcd cde def efg fgh))
+> (list-filter eqv? my-list 'abc)
+(list 'abc)
+```
 
 ## 7. Aufgabe *
 
 Schreiben Sie eine eigene Prädikatfunktion für die Funktion `list-filter`, welche untersucht, ob es eine oder mehrere Zahlen in einer Liste von Zahlen gibt, die teilbar durch eine bestimmte (als Parameter gegebene) Zahl ist.
 
+```racket
+(define (division?  value1 value2)
+         (integer? (/ value1 value2)))
+```
+
+```racket
+> (list-filter division? my-list 2)
+(list 14 6 4 6 30 2)
+> (list-filter division? my-list 5)
+(list 5 30)
+```
 ## 8. Aufgabe *
 
 Sie kennen die Implementation des Sortierens durch Einfügen:
@@ -221,6 +244,33 @@ Sie kennen die Implementation des Sortierens durch Einfügen:
 
 Die `sort-a-list` Funktion sortiert nur Zahlen von klein nach gross. Ändern Sie die `sort-a-list` Funktion so, dass die Sortierrichtung bestimmt und nicht nur Zahlen sondern auch Strings sortiert werden können.
 
+```racket
+; Sortieren durch Einfügen
+(define (sort-a-list rel-op num-list)
+  (cond
+    ((empty? num-list) empty)
+    (else (insert rel-op (first num-list)
+                  (sort-a-list rel-op (rest num-list))))
+    ))
+; Einfügen in sortierter Liste
+(define (insert rel-op item a-list)
+  (cond
+    ((empty? a-list) (list item))
+    ((rel-op item (first a-list)) (cons item a-list))
+    (else (cons (first a-list) (insert rel-op item (rest a-list))))
+    ))
+```
+
+```racket
+> (sort-a-list string>=? '("ABC" "CDEF" "EFG" "ZHA"))
+(list "ZHA" "EFG" "CDEF" "ABC")
+> (sort-a-list string<=? '("ABC" "CDEF" "EFG" "ZHA"))
+(list "ABC" "CDEF" "EFG" "ZHA")
+> (sort-a-list <= '(1 21 5 62 7 23 1 91))
+(list 1 1 5 7 21 23 62 91)
+>  (sort-a-list >= '(1 21 5 62 7 23 1 91))
+(list 91 62 23 21 7 5 1 1)
+```
 ## 9. Aufgabe *
 
 ### a) Untersuchen Sie die folgende Funktion. Was macht die Funktionen genau?
@@ -231,6 +281,13 @@ Die `sort-a-list` Funktion sortiert nur Zahlen von klein nach gross. Ändern Sie
 	[(>= a 0) +]
 	[else -])
 )
+```
+Es zeigt an, ob eine Zahl positiv oder negativ ist.
+```racket
+> (a-op 2)
++
+> (a-op -22)
+-
 ```
 
 ### b) Schreiben Sie eine Funktion abs-a-plus-b, welche die absoluten Werte von a und b zusammen zählt.
