@@ -185,10 +185,11 @@ Die Folie 23 aus PCP-Scheme-4 zeigt die Funktion `list-filter`, um eine Liste zu
 Die Tests wurden nur mit Listen von Zahlen durchgeführt. Testen Sie die Funktion auch für folgende Situationen
 
 ### a) Suche ein bestimmtes Symbol in einer Liste von Symbolen
-Funktioniert nicht
+Funktioniert nicht.
 
 ### b) Suche ein bestimmtes Zeichen in einer Liste von Zeichen
 Ja, funktioniert.
+
 ```racket
 > (define my-list '(list a b c d e f))
 > (list-filter eqv? my-list 'a)
@@ -198,11 +199,10 @@ Ja, funktioniert.
 ### c) Suche einen bestimmten String in einer Liste von Strings
 Ja, funktioniert.
 ```racket
-> (define my-list '(list abc bcd cde def efg fgh))
-> (list-filter eqv? my-list 'abc)
-(list 'abc)
+> (define my-list '(list "abc" "bcd" "cde" "def" "efg" "fgh"))
+>  (list-filter eqv? my-list "abc")
+(list "abc")
 ```
-
 ## 7. Aufgabe *
 
 Schreiben Sie eine eigene Prädikatfunktion für die Funktion `list-filter`, welche untersucht, ob es eine oder mehrere Zahlen in einer Liste von Zahlen gibt, die teilbar durch eine bestimmte (als Parameter gegebene) Zahl ist.
@@ -293,6 +293,11 @@ Es zeigt an, ob eine Zahl positiv oder negativ ist.
 ### b) Schreiben Sie eine Funktion abs-a-plus-b, welche die absoluten Werte von a und b zusammen zählt.
 ```racket
 (define (abs-a-plus-b a b)
+  (+ (abs a) (abs b)))
 ```
 
 ### c) Erweitern Sie die Funktion `abs-a-plus-b` zu `abs-a-op-b` damit man eine beliebige Operation mit den absoluten Werten von a und b durchführen kann.
+```racket
+(define (abs-a-op-b op a b)
+  (op (abs a) (abs b)))
+```
