@@ -28,13 +28,7 @@ Die Hilfsfunktion insert wird eigentlich nur innerhalb der Funktion `sort-by-ins
 ## 2. Aufgabe *
 Sie kennen die Fibonacci-Folge:
 
-$$ fib(n) = \left{
-	\begin{matrix}
-	0 & n = 0 \\
-	1 & n = 1 \\
-	fib(n-1) + fib(n-2) & n >= 2
-	\end{matrix}
-$$
+![Definition Fibonacci Folge](FibonacciFolge.png)
 
 Die Definition einer strukturellen Rekursion könnte so aussehen
 
