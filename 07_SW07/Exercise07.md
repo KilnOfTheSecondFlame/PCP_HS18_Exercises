@@ -192,7 +192,30 @@ Eine mögliche Interaktion könnte dann folgendermassen verlaufen:
 ```
 
 ### a) Warum widerspricht diese Interaktion fundamental unserem bisherigen funktionalen Programmiergrundsatz?
+Wenn man die Funktion add-entry mehrmals mit den gleichn Inputs aufruft, dann resultiert ein jedesmal ein anderes Ergebnis. Dies ist nicht mehr funktional!
 
 ### b) Schreiben Sie die Funktion look-at für das Suchen der Nummer anhand des Vornamens
+```racket
+(define (look-at phone-dir name)
+  (cond
+    ((empty? phone-dir) #false)
+    ((equal? (first (first phone-dir)) name) (first (rest (first phone-dir))))
+    (else
+     (look-at (rest phone-dir) name))
+    )
+)
+```
 
 ### c) Schreiben Sie die Funktion add-entry für das Hinzufügen einer neuen Person mit Vornamen und Nummer.
+```racket
+(define (add-entry name number)
+  (set! my-phone-dir (append my-phone-dir (list (list name number))))
+  )
+```
+## GIMP Skript
+
+### a) Schreiben Sie ein GIMP Skript, das ein konfigurierbares Gitternetz im GIMP zeichnet. Die Vorlage enthält, dass ein neues Bild erstellt wird, Hintergrund- und Strichfarbe konfigurierbar sind, der Hintergrund transparent eingestellt werden kann. Sie müssen das Zeichnen der folgenden Gitternetz-Varianten umsetzen:
+![Definition Gitternetz Varianten](gimp-scm-script.png)
+
+
+### b) Erstellen Sie ein neues GIMP Skript, basierend auf dem Skript aus a), mit dem man auf ein bestehendes Bild ein konfigurierbares Gitternetz im GIMP zeichnen kann. Der Konfigurationsdialog soll nur noch die Parameter enthalten, die tatsächlich notwendig sind.
