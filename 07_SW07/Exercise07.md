@@ -25,6 +25,30 @@ Sie haben das Sortierens durch Einfügen aus „Programmierübung zu Scheme 3+4�
 
 Die Hilfsfunktion insert wird eigentlich nur innerhalb der Funktion `sort-by-insert` benötigt. Integrieren Sie deshalb die Hilfsfunktion `insert` als lokale Funktion in die Funktion `sort-by-insert`.
 
+```racket
+(define (sort-a-list param-op param-a-list)
+  (local (
+          ; Sortieren durch Einfügen
+          (define (sort-main op a-list)
+            (cond
+              ((empty? a-list) empty)
+              (else (insert op (first a-list)
+                            (sort-main op (rest a-list))))
+              )
+            )
+          ; Einfügen in sortierter Liste
+          (define (insert op item a-list)
+            (cond
+              ((empty? a-list) (list item))
+              ((op item (first a-list)) (cons item a-list))
+              (else (cons (first a-list) (insert op item (rest a-list))))
+              )
+            )
+          )
+          (sort-main param-op param-a-list)
+    )
+  )
+```
 ## 2. Aufgabe *
 Sie kennen die Fibonacci-Folge:
 
@@ -61,7 +85,16 @@ b)
 b)
 ```
 
+```racket
+43
+2
+>
+```
+
 ### b) Erklären Sie, warum sich die beiden Ausdrücke unterscheiden.
+Bei der ersten Ausgabe ist die Variable a noch nicht an 1 gebunden, wenn b mit (+ a 1) ausgewertet wird.
+Bei der zweiten Ausgabe wird das sequenzielle let verwendet. Dies führt dazu, dass von links nach rechts ausgewertet wird.
+
 
 ## Anonyme Funktionen
 (Einstellung in DrRacket: "Advanced Student")
@@ -94,6 +127,10 @@ Angenommen, man hat die Liste
 (define a-list (list (list 1 2 3) (list 1 2) (list 1 2 3 4)))
 ```
 und möchte jede Liste mit 0 beginnen lassen. Wie kann man dies erreichen, ohne, dass extra eine Funktion (mit Namen) geschrieben werden muss?
+
+```racket
+(map (lambda (other-list) (cons 0 other-list)) a-list)
+```
 
 ## 6. Aufgabe *
 Angenommen, man hat eine Liste mit Funktionen zur Berechnung von Eigenschaften eines Rechteckes, hier Fläche und Umfang:
@@ -133,7 +170,7 @@ Ein Programm soll zwei Möglichkeiten bieten:
 ; nachschauen: liste symbol --> zahl oder false
 (define (look-at phone-dir name) (...))
 ```
-	
+
 	2. Hinzufügen einer neuen Person mittels Vornamen und Nummer im globalen Verzeichnis
 ```racket
 ; hinzufuegen: symbol zahl --> void
