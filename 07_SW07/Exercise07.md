@@ -66,8 +66,19 @@ Die Definition einer strukturellen Rekursion könnte so aussehen
 ```
 
 ### a) Implementieren Sie eine Rekursion mit Akkumulator. Nutzen Sie dazu die local Definition.
-
+```racket
+(define (fib n)
+  (local (
+          (define (fib-acc x current previous)
+            (cond
+                   ((equal? x n) current)
+                   (else (fib-acc (+ x 1)  (+ current previous) current))
+            ))
+          )
+    (fib-acc 0 0 1)))
+```
 ### b) Führen Sie Vergleich Tests mit und ohne Akkumulator durch. Welche Unterschiede sehen Sie?
+Mit Akkumulator geht die Berechnung für zum Beispiel 30 schneller als ohne Akkumulator.
 
 ## 3. Aufgabe *
 
