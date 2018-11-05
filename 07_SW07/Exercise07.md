@@ -78,7 +78,7 @@ Die Definition einer strukturellen Rekursion könnte so aussehen
     (fib-acc 0 0 1)))
 ```
 ### b) Führen Sie Vergleich Tests mit und ohne Akkumulator durch. Welche Unterschiede sehen Sie?
-Mit Akkumulator geht die Berechnung für zum Beispiel 30 schneller als ohne Akkumulator.
+Mit Akkumulator geht die Berechnung für zum Beispiel 30 schneller als ohne Akkumulator. Siehe PCP Woche 03.
 
 ## 3. Aufgabe *
 
@@ -130,7 +130,30 @@ Bei der zweiten Ausgabe wird das sequenzielle let verwendet. Dies führt dazu, d
 )
 ```
 
+```racket
+11
+7
+```
+
 ### b) Erklären Sie, warum sich die beiden Ausdrücke unterscheiden.
+Im ersten lambda-Ausdruck:
+1. Zuweisung von links nach rechts: y (5) -> x , x (1) -> y
+2. Verdoppelung x: 10
+3. Addition von y (1) zu 2x (10): 11
+
+Im zweiten lambda Ausdruck:
+1. Zuweisung von links nach rechts: y (5) -> a , x (1) -> b
+2. Verdoppelung x: 2
+3. Addition von y (5) zu 2x (2): 7
+
+Im Zweiten werden a und b zugewiesen aber nie verwendet.
+```racket
+(
+	(lambda (a b)
+		(+ (* 2 a) b))
+		y x
+)
+```
 
 ## 5. Aufgabe *
 Angenommen, man hat die Liste
@@ -164,6 +187,27 @@ finished
 20
 finished
 >
+```
+
+```racket
+(define rect-calc-list
+	(list (lambda (a b) (* a b)) (lambda (a b) (* 2 (+ a b))))
+)
+(define (calc-a-list functionlist a b)
+	(for-each
+		(lambda (function) (function a b))
+		functionlist
+	)
+)
+```
+
+Programm gibt eine Liste der berechneten Eigenschaften aus:
+```racket
+> (calc-a-list rect-calc-list 2 3)
+(list 6 10)
+> (calc-a-list rect-calc-list 5 5)
+(list 25 20)
+> 
 ```
 
 ## Funktionen mit Gedächtnis
