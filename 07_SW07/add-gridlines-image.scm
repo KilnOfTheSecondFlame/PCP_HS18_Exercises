@@ -22,7 +22,7 @@
 	"<Image>/Image/Add")
 
 ; Das eigentliche Skript
-(define (script-fu-add-grid-lines image spacing brush brush-size foreground horizontal vertical dashed)
+(define (script-fu-add-grid-lines image spacing brush brush-size color horizontal vertical dashed)
 	
 	(gimp-context-push)
 	(let* (
@@ -37,7 +37,8 @@
 				(point (cons-array 4 'double))
 				(invert FALSE)
 				)
-	    (set! color TRANSPARENT-FILL) 
+	    (set! color TRANSPARENT-FILL)
+		(gimp-context-set-foreground color)
 		(gimp-context-set-brush (car brush))
 		(gimp-context-set-brush-size brush-size)
 		(gimp-drawable-fill layer color)
@@ -133,5 +134,6 @@
 		; Bild anzeigen
 		(gimp-context-pop)
 		(gimp-displays-flush)
+		(gimp-image-clean-all image)
 	)
 )

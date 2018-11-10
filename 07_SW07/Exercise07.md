@@ -87,7 +87,7 @@ Mit Akkumulator geht die Berechnung für zum Beispiel 30 schneller als ohne Akku
 (define a 42)
 
 (let ((a 1)
-(b (+ a 1)))
+  (b (+ a 1)))
 b)
 
 (let* ((a 1)
@@ -191,13 +191,18 @@ finished
 
 ```racket
 (define rect-calc-list
-	(list (lambda (a b) (* a b)) (lambda (a b) (* 2 (+ a b))))
+  (list (lambda (a b) (* a b)) (lambda (a b) (* 2 (+ a b))))
 )
 (define (calc-a-list functionlist a b)
-	(for-each
-		(lambda (function) (function a b))
-		functionlist
-	)
+  (if (empty? functionlist)
+    ((write 'finished)
+     (newline))
+    (
+      (write ((first functionlist) a b))
+      (newline)
+      (calc-a-list (rest functionlist) a b)
+    )
+  )
 )
 ```
 

@@ -142,5 +142,6 @@
 		(gimp-display-new image)
 		(gimp-context-pop)
 		(gimp-displays-flush)
+		(gimp-image-clean-all image)
 	)
 )
