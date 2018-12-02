@@ -1,0 +1,28 @@
+defmodule HiThere do
+  def hello do
+    receive do
+      {:hello, pid} ->
+        IO.puts("HI from #{inspect pid}")
+      {:child, _} ->
+        child = spawn(&HiThere.hello/0)
+        child_pid = self()
+        IO.puts("Creating a child process from pid #{inspect child_pid}")
+        send(child, {:hello, self()})
+    end
+    hello()
+  end
+end
+
+# Creating two processes
+actor = spawn(&HiThere.hello/0)
+actor2 = spawn(&HiThere.hello/0)
+# Main Process PID
+main_pid = self()
+IO.puts("Main Process pid #{inspect main_pid}")
+
+# Send messages to process
+send(actor, {:hello, main_pid})
+send(actor, {:child, main_pid})
+send(actor2, {:child, main_pid})
+send(actor2, {:hello, main_pid})
+:timer.sleep(1000)
