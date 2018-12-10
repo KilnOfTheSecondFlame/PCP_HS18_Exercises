@@ -6,6 +6,11 @@ defmodule PCPStreams do
     |> Enum.reduce(0, &(&1 + &2))
     |> IO.puts()
   end
+
+  def powerSumPositive(_) do
+  	IO.puts("Attribute is not a list")
+  end
 end
 
 PCPStreams.powerSumPositive([-1,2,4,6])
+PCPStreams.powerSumPositive(%{name: "Fred", age: "56"})
