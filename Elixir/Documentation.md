@@ -14,7 +14,17 @@
   - Somit wird das Elixir Programm in Byte-Code für den Erlang VM kompiliert.
 - Datenstrukturen:
   - List (Als LinkedList)
+  ```
+list = [1, 2, 3, 4, 5]
+  ```
   - Tupel: Zugriff der Werte über ein Index
+  ```
+tupel = (:a, 1)
+  ```
+  - Map: key-value Paar
+  ```
+map = %{:a => 1, 2 => :b}
+  ```
 
 ## Abgrenzung zu Erlang
 
