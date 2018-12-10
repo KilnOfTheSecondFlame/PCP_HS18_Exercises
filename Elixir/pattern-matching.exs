@@ -17,3 +17,18 @@ end
 IO.puts(greet.("hello", "John"))
 IO.puts(greet.("The Great", "Hans Muster"))
 IO.puts(greet.(:bye, "Bob"))
+
+# Patternmatching in attribut - Hier map key 'name'
+defmodule Greeter do
+  def hello(%{name: person_name}) do
+    IO.puts "Hello, " <> person_name
+  end
+end
+
+bob = %{
+	name: "bob",
+	age: 24,
+	favourite_cypher: "RSA"
+}
+
+Greeter.hello(bob)
