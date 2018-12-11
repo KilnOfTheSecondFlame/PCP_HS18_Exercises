@@ -1,3 +1,18 @@
+# Enum
+#   all?
+#   any?
+#   chunk_every
+#   chunk_by
+#   map_every
+#   each
+#   map
+#   min
+#   max
+#   filter
+#   reduce
+#   sort
+#   uniq_by
+
 defmodule PCPStreams do
   @moduledoc false
   def powerSumPositive(list) when is_list(list) do
