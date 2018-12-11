@@ -1,4 +1,5 @@
 defmodule PCPStreams do
+  @moduledoc false
   def powerSumPositive(list) when is_list(list) do
     list
     |> Enum.filter(&(&1 > 0))

@@ -1,4 +1,5 @@
 defmodule HiThere do
+  @moduledoc false
   def hello do
     receive do
       {:hello, pid} ->
