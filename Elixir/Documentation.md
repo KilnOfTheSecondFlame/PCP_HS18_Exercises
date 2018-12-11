@@ -23,12 +23,50 @@
 
 [comment]: # "TODO Just pointers at the moment -> Expand"
 * Modern syntax
+
+Erlang:
+```Erlang
+% hello world program
+-module(helloworld).
+-import(io,[fwrite/1]).
+-export([start/0]).
+
+start() ->
+   fwrite("Hello, world!\n").
+```
+
+Elixir:
+```Elixir
+defmodule helloworld do
+  def start do: IO.puts("Hello, World!\n")
+end
+```
 * Protocols
+
+Erlauben Polymorphismus für existierende atome
+```Elixir
+defimpl String.Chars, for: Tuple do
+  def to_string(tuple) do
+    interior =
+      tuple
+      |> Tuple.to_list()
+      |> Enum.map(&Kernel.to_string/1)
+      |> Enum.join(", ")
+
+    "{#{interior}}"
+  end
+end
+```
+Zum Testen, vorher/nachher:
+```Elixir
+to_string({"PCP",:HS,2018})
+```
+
 * Pipe operator (reduce nested functions)
 * Rebindable variables
 * Macros
 * Function exporting at the definition (def vs defp)
-* Mix build tool
+* Mix build tool: Automatische Projektinitialisierung
 * Built in test (ExUnit)
 * Built in docs
     * tests in docs (DocTest)
