@@ -5,6 +5,9 @@
 - Abgrenzung von Erlang
 - Enumerables and Streams (lazy & async)
 - Pattern Matching
+- Comprehensions and into-Option
+- Macros and Quotes
+
 
 ## Grundlagen
 - Elixir ist eine funktionale Programmiersprache.
