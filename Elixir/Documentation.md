@@ -31,8 +31,7 @@ map = %{:a => 1, 2 => :b}
 
 ## Abgrenzung zu Erlang
 
-[comment]: # "TODO Just pointers at the moment -> Expand"
-* Modern syntax
+* Moderner Syntax
 
 Erlang:
 ```Erlang
@@ -72,11 +71,19 @@ Zum Testen, vorher/nachher:
 to_string({"PCP",:HS,2018})
 ```
 
-* Pipe operator (reduce nested functions)
-* Rebindable variables
+* Pipe operator
+* Variabeln können überschrieben werden
 * Macros
-* Function exporting at the definition (def vs defp)
+
+In Elixir wird der Abstrakte Syntax-Baum (AST) aus Tupel {a, b} aufgebaut.
+Diese Tupel beinhalten den Funktionsnamen, Metadaten und Funktionsargumente.
+Um diese Strukturen zu sehen, können wir die `quote/2` Funktion gebrauchen.
+
+Wir können mithilfe der Funktionen `quote/2` und `unquote/1` jedoch auch
+Code-Injection betreiben -> Macros.
+
+* Function exporting at the definition (def vs defp) (Gültigkeitsbereicg)
 * Mix build tool: Automatische Projektinitialisierung
 * Built in test (ExUnit)
-* Built in docs
-    * tests in docs (DocTest)
+* Built in Dokumentation
+    * Tests in Dokumentation (DocTest)
