@@ -49,5 +49,13 @@ IO.puts("\n\n--- Option :into ---\n")
 # keyword list in eine Map transformieren wollen?
 # wir gebrauchen :into
 resultat =
-  for {dep, br} <- dep_bundesrat, into: %{}, do: {dep, br}
+  for {dep, br} <- dep_bundesrat, into: %{} do
+    case {dep, br} do
+      {:vbs, _} -> {dep, "Amherd"}
+      {:wbf, _} -> {dep, "Parmelin"}
+      {:uvek, _} -> {dep, "Sommaruga"}
+      {:ejpd, _} -> {dep, "Keller-Sutter"}
+      {dep, br} -> {dep, br}
+    end
+end
 IO.inspect(resultat)
