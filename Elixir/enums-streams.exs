@@ -16,6 +16,7 @@
 defmodule PCPStreams do
   @moduledoc false
   # Enum functions sind eager
+  # Enums sind Collections in Elixir
   def powerSumPositive(list) when is_list(list) do
     list
     |> Enum.filter(&(&1 > 0))

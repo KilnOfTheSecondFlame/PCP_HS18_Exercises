@@ -82,7 +82,7 @@ Um diese Strukturen zu sehen, können wir die `quote/2` Funktion gebrauchen.
 Wir können mithilfe der Funktionen `quote/2` und `unquote/1` jedoch auch
 Code-Injection betreiben -> Macros.
 
-* Function exporting at the definition (def vs defp) (Gültigkeitsbereicg)
+* Function exporting at the definition (def vs defp) (Gültigkeitsbereich)
 * Mix build tool: Automatische Projektinitialisierung
 * Built in test (ExUnit)
 * Built in Dokumentation

@@ -25,6 +25,7 @@ end
 
 # Pipes-Funktionalität zeigen
 [-5,-4,-3,-2,-1,0,1,2,3,4,5] |> PCPPipes.getPositives |> IO.inspect
+
 # Mehrere Funktionen hintereinander
 # 1,2,3,4,5 -> 1,4,9,16,25 -> 55
 [-5,-4,-3,-2,-1,0,1,2,3,4,5] |> PCPPipes.getPositives |> PCPPipes.getPower |> PCPPipes.getSum |> IO.puts
