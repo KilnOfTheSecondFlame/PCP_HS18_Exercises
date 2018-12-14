@@ -3,11 +3,11 @@ defmodule HiThere do
   def hello do
     receive do
       {:hello, pid} ->
-        IO.puts("HI from #{inspect pid}")
+        IO.puts("Receiving a HI message from #{inspect pid}")
       {:child, _} ->
         child = spawn(&HiThere.hello/0)
         child_pid = self()
-        IO.puts("Creating a child process from pid #{inspect child_pid}")
+        IO.puts("New childprocess #{inspect child_pid} created")
         send(child, {:hello, self()})
     end
     hello()
@@ -19,7 +19,7 @@ actor = spawn(&HiThere.hello/0)
 actor2 = spawn(&HiThere.hello/0)
 # Main Process PID
 main_pid = self()
-IO.puts("Main Process pid #{inspect main_pid}")
+IO.puts("\nMain Process pid #{inspect main_pid}\n\n")
 
 # Send messages to process
 send(actor, {:hello, main_pid})

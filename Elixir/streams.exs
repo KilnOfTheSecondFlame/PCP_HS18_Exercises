@@ -36,6 +36,7 @@ defmodule PCPStreams do
     |> Stream.map(&(&1 * &1))
     |> Stream.take(10)
     |> Enum.to_list()
+    |> Enum.reduce(0, &(&1 + &2))
     |> IO.inspect()
   end
 
@@ -47,4 +48,4 @@ end
 
 PCPStreams.powerSumPositive([-1,2,4,6])
 PCPStreams.powerSumPositive(%{name: "Fred", age: "56"})
-PCPStreams.powerSumPositiveStream(Enum.to_list(1..100_000))
+PCPStreams.powerSumPositiveStream(Enum.to_list(-10..100_000))
