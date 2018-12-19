@@ -87,3 +87,21 @@ Code-Injection betreiben -> Macros.
 * Built in test (ExUnit)
 * Built in Dokumentation
     * Tests in Dokumentation (DocTest)
+
+# Technisches Fazit
+- Erlang Module können wie Elixir-Module eingebunden und gebraucht werden
+- Fault Tolerance durch Actor Model
+  - Kommunikation zwischen Elixir Prozessen nur mit Messages möglich
+  - Wenn ein Child Elixir Prozess ein Exception wirft, kann ein neuer Child Elixir Prozess aus dem Main Prozess erstellt werden.
+- Pipes / Streams / Anonyme Funktion führen zu lesbarem Code
+- Pattern Matching ist nach wie vor sehr mächtig
+
+# Persönliches Fazit
+## Pascal:
+- No hassle programming -> Erinnert an Python
+- Die Mechaniken von Scheme in einer lesbaren Syntax
+- Gute Dokumentation und Einführungen
+
+## Thushjandan:
+- Gute Community
+- Man findet einfach Hilfe, findet Codebeispiele und Lösungen von anderen EntwicklernAusgereifte Sprache, real-time Anwendung
