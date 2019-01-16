@@ -30,5 +30,5 @@ defmodule PCPStreams do
   end
 end
 
-PCPStreams.powerSumPositive([-1,2,4,6])
+PCPStreams.powerSumPositive([-5,-4,-3,-2,-1,0,1,2,3,4,5])
 PCPStreams.powerSumPositive(%{name: "Decoodz", age: "24"})

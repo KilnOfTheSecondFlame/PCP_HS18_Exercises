@@ -1,6 +1,6 @@
-/* 
+/*
  * Header declaration for PCP stack implementation
- * 
+ *
  * Author: ruedi.arnold@hslu.ch
  */
 
@@ -27,4 +27,3 @@ int isEmpty(stack s);
 int size(stack s);
 
 #endif	/* STACK_H */
-
