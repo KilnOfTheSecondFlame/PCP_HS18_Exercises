@@ -4,7 +4,7 @@ female(mia).
 female(tina).
 female(ann).
 female(sue).
-%all females
+% all females
 
 male(mike).
 male(jack).
@@ -50,6 +50,6 @@ father(Father, Child) :- male(Father), parent(Father, Child).
 sibling(Sibling_one, Sibling_two) :- parent(X, Sibling_one), parent(X, Sibling_two).
 % function if one's a sibling of the other
 
-grandmother(Grandmother, Grandchild) :- female(Grandmother), parent(Parent, Grandchild), parent(Grandmother, Parent).
+grandmother(Grandmother, Grandchild) :- female(Grandmother), parent(Grandmother, Parent), parent(Parent, Grandchild).
 
 offspring(Offspring, Ancestor) :- parent(Ancestor, Offspring); parent(Ancestor, X), offspring(Offspring, X).
