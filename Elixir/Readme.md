@@ -22,7 +22,7 @@ $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Obj
 1. Homebrew installieren mit
 ```Terminal
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
+```
 
 ![Was das Skript tut](assets/homebrew_installation.png)
 
